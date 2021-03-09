@@ -50,11 +50,11 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="about.html">교육과정</a></li>
-          <li><a href="courses.html">공지사항</a></li>
-          <li><a href="trainers.html">교육후기게시판</a></li>
-          <li><a href="events.html">Q&A</a></li>
+          <li class="active"><a href="index.jsp">Home</a></li>
+          <li><a href="EDC.jsp">교육과정</a></li>
+          <li><a href="Notice.jsp">공지사항</a></li>
+          <li><a href="Review.jsp">수강후기게시판</a></li>
+          <li><a href="QNA.jsp">Q&A</a></li>
           <li><a href="pricing.html">서비스준비중</a></li>
           <li class="drop-down"><a href="">서비스준비중</a>
             <ul>
