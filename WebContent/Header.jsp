@@ -78,7 +78,7 @@
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="courses.html" class="get-started-btn">로그인</a>
+      <a href="LoginForm.jsp" class="get-started-btn">로그인</a>
 
     </div>
   </header><!-- End Header -->
