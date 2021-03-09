@@ -78,8 +78,13 @@
         </ul>
       </nav><!-- .nav-menu -->
 
+<<<<<<< HEAD
       <a href="LoginForm.jsp" class="get-started-btn">로그인</a>
 
+=======
+      <a href="courses.html" class="get-started-btn">관리자 로그인</a>
+		 <a href="Student_Login.me" class="get-started-btn">학생 로그인</a>
+>>>>>>> branch 'master' of https://github.com/dksencks2232/Academy.git
     </div>
   </header><!-- End Header -->
 
