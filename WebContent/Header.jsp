@@ -78,8 +78,8 @@
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="courses.html" class="get-started-btn">로그인</a>
-
+      <a href="courses.html" class="get-started-btn">관리자 로그인</a>
+		 <a href="Student_Login.me" class="get-started-btn">학생 로그인</a>
     </div>
   </header><!-- End Header -->
 
