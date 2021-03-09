@@ -2,7 +2,7 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Tables */
 
-DROP TABLE IF EXISTS attend;
+DROP TABLE IF EXISTS Attend;
 DROP TABLE IF EXISTS Record;
 DROP TABLE IF EXISTS Regist;
 DROP TABLE IF EXISTS Review_Board;
@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS QNA_Board;
 /* Create Tables */
 
 -- 출석
-CREATE TABLE attend
+CREATE TABLE Attend
 (
 	Stu_Num int NOT NULL COMMENT '학생_번호',
 	Attend_Check int DEFAULT 0 NOT NULL COMMENT '출석체크',
@@ -205,7 +205,7 @@ ALTER TABLE QNA_Comment
 ;
 
 
-ALTER TABLE attend
+ALTER TABLE Attend
 	ADD FOREIGN KEY (Stu_Num)
 	REFERENCES StudentMember (Stu_Num)
 	ON UPDATE RESTRICT
