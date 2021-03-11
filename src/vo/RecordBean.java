@@ -7,6 +7,7 @@ public class RecordBean {
 	
 	public int getRecord_Num() {
 		return record_Num;
+		
 	}
 	public void setRecord_Num(int record_Num) {
 		this.record_Num = record_Num;
