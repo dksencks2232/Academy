@@ -1,61 +1,63 @@
 package vo;
 //교육과정
 public class EDCBean {
-	private int EDC_Num; // '교육과정_번호',
-	private String EDC_Subject; // '교육과정_과목명',
-	private String EDC_Place;//'교육과정_장소',
-	private String EDC_Time;// '교육과정_시간',
-	private String EDC_PD; //'교육과정_기간',
-	private String EDC_NMPR; // '교육과정_모집인원',
-	private String EDC_Photo; //'교육과정_사진',
-	private String EDC_Content;// '교육과정_내용',
-	public int getEDC_Num() {
-		return EDC_Num;
+	private int edc_Num; // '교육과정_번호',
+	private String edc_Subject; // '교육과정_과목명',
+	private String edc_Place;//'교육과정_장소',
+	private String edc_Time;// '교육과정_시간',
+	private String edc_PD; //'교육과정_기간',
+	private String edc_NMPR; // '교육과정_모집인원',
+	private String edc_Photo; //'교육과정_사진',
+	private String edc_Content;// '교육과정_내용',
+	public int getEdc_Num() {
+		return edc_Num;
 	}
-	public void setEDC_Num(int eDC_Num) {
-		EDC_Num = eDC_Num;
+	public void setEdc_Num(int edc_Num) {
+		this.edc_Num = edc_Num;
 	}
-	public String getEDC_Subject() {
-		return EDC_Subject;
+	public String getEdc_Subject() {
+		return edc_Subject;
 	}
-	public void setEDC_Subject(String eDC_Subject) {
-		EDC_Subject = eDC_Subject;
+	public void setEdc_Subject(String edc_Subject) {
+		this.edc_Subject = edc_Subject;
 	}
-	public String getEDC_Place() {
-		return EDC_Place;
+	public String getEdc_Place() {
+		return edc_Place;
 	}
-	public void setEDC_Place(String eDC_Place) {
-		EDC_Place = eDC_Place;
+	public void setEdc_Place(String edc_Place) {
+		this.edc_Place = edc_Place;
 	}
-	public String getEDC_Time() {
-		return EDC_Time;
+	public String getEdc_Time() {
+		return edc_Time;
 	}
-	public void setEDC_Time(String eDC_Time) {
-		EDC_Time = eDC_Time;
+	public void setEdc_Time(String edc_Time) {
+		this.edc_Time = edc_Time;
 	}
-	public String getEDC_PD() {
-		return EDC_PD;
+	public String getEdc_PD() {
+		return edc_PD;
 	}
-	public void setEDC_PD(String eDC_PD) {
-		EDC_PD = eDC_PD;
+	public void setEdc_PD(String edc_PD) {
+		this.edc_PD = edc_PD;
 	}
-	public String getEDC_NMPR() {
-		return EDC_NMPR;
+	public String getEdc_NMPR() {
+		return edc_NMPR;
 	}
-	public void setEDC_NMPR(String eDC_NMPR) {
-		EDC_NMPR = eDC_NMPR;
+	public void setEdc_NMPR(String edc_NMPR) {
+		this.edc_NMPR = edc_NMPR;
 	}
-	public String getEDC_Photo() {
-		return EDC_Photo;
+	public String getEdc_Photo() {
+		return edc_Photo;
 	}
-	public void setEDC_Photo(String eDC_Photo) {
-		EDC_Photo = eDC_Photo;
+	public void setEdc_Photo(String edc_Photo) {
+		this.edc_Photo = edc_Photo;
 	}
-	public String getEDC_Content() {
-		return EDC_Content;
+	public String getEdc_Content() {
+		return edc_Content;
 	}
-	public void setEDC_Content(String eDC_Content) {
-		EDC_Content = eDC_Content;
+	public void setEdc_Content(String edc_Content) {
+		this.edc_Content = edc_Content;
 	}
+	
+	
 	
 }
