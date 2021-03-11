@@ -1,5 +1,4 @@
-/db/
-/vo/
+/member/
 /controller/
 /dao/
-/member/
+/vo/

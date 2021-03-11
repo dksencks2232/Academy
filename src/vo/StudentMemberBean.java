@@ -15,6 +15,7 @@ public class StudentMemberBean {
 	private String stu_ID;//'학생_아이디',
 	private String stu_PW;//'학생_비밀번호',
 	
+	
 	public int getStu_Num() {
 		return stu_Num;
 	}

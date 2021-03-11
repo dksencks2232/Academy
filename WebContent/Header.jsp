@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,13 +79,21 @@
         </ul>
       </nav><!-- .nav-menu -->
 
-<<<<<<< HEAD
-      <a href="LoginForm.jsp" class="get-started-btn">로그인</a>
+ <a href="courses.html" class="get-started-btn">관리자 로그인</a>
 
-=======
-      <a href="courses.html" class="get-started-btn">관리자 로그인</a>
-		 <a href="Student_Login.me" class="get-started-btn">학생 로그인</a>
->>>>>>> branch 'master' of https://github.com/dksencks2232/Academy.git
+	<c:choose>
+	<c:when test="${id eq null}">
+		<a href="Student_Login.me" class="get-started-btn">학생 로그인</a>
+	</c:when>
+	<c:otherwise>
+		<a href="Student_Login.me" class="get-started-btn">로그아웃</a>
+	</c:otherwise>
+</c:choose>
+
+
+     
+		 
+
     </div>
   </header><!-- End Header -->
 
