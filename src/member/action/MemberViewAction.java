@@ -29,9 +29,10 @@ public class MemberViewAction implements Action {
 			  StudentMemberBean member = memberViewService.getMember(id);
 			  request.setAttribute("member", member);
 			 
-			
-			forward.setRedirect(false);
-			forward.setPath("./Student/Student_Info.jsp");
+			  request.setAttribute("pagefile", "./Student/Student_Info.jsp");
+				forward.setPath("./index2.jsp");
+//			forward.setRedirect(false);
+//			forward.setPath("./Student/Student_Info.jsp");
 		}
 		
 		return forward;

@@ -32,8 +32,9 @@ public class MemberUpdateFormAction implements Action {
 			  request.setAttribute("member", member);
 			 
 			
-			
-			forward.setPath("./Student/StudentUpdateForm.jsp");
+			  request.setAttribute("pagefile", "./Student/StudentUpdateForm.jsp");
+				forward.setPath("./index2.jsp");
+//			forward.setPath("./Student/StudentUpdateForm.jsp");
 		}
 		
 		return forward;

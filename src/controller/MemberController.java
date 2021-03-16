@@ -22,6 +22,7 @@ public class MemberController extends HttpServlet {
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) 
 	throws ServletException, IOException{
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
@@ -59,16 +60,31 @@ public class MemberController extends HttpServlet {
 			}
 		//	forward.setPath("/Student/Student_Info.jsp");
 		}else if(command.equals("/StudentUpdateForm.me")) {//학생정보수정폼으로 이동
-			forward = new ActionForward();
-			forward.setRedirect(false);
-//			action = new MemberUpdateFormAction();
-//			try {
-//				forward = action.execute(request, response);
-//				
-//			}catch(Exception e) {
-//				e.printStackTrace();
-//			}
-			forward.setPath("./Student/StudentUpdateForm.jsp");
+			
+			action = new MemberUpdateFormAction();
+			try {
+				forward = action.execute(request, response);
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if(command.equals("/StudentUpdate.me")) {//학생정보 업데이트
+			action = new MemberUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		}else if(command.equals("/StudentLogout.me")) {//로그아웃
+			action = new MemberLogoutAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
 		}
 		
 		System.out.println("forward : " + forward.getPath());

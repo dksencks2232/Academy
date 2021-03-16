@@ -17,6 +17,8 @@ public class MemberLoginAction implements Action {
 		HttpSession session = request.getSession();
 		StudentMemberBean member = new StudentMemberBean();
 		
+		
+		
 		//getParmater로 넘어온 id pw 저장
 		member.setStu_ID(request.getParameter("MEMBER_ID"));
 		member.setStu_PW(request.getParameter("MEMBER_PW"));
@@ -30,6 +32,7 @@ public class MemberLoginAction implements Action {
 		if(logoinResult) {
 			forward = new ActionForward();
 			session.setAttribute("id", member.getStu_ID());
+			
 			forward.setRedirect(true);
 			forward.setPath("StudentView.me");
 			

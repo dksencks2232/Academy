@@ -27,6 +27,8 @@ public class ActionForward {
 	public void setRedirect(boolean redirect) {
 		this.redirect = redirect;
 	}
+
+	
 	
 	
 }

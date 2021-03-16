@@ -25,52 +25,52 @@
                     	<tr>
                         <td>학생번호</td>
                       	 <td>${member.stu_Num }</td>
-                      	 <input type="hidden" value='${member.stu_Num }' name = "stu_Num">
+                      	 
                       </tr>	
                     <tr>
                         <td>이름</td>
-                      	 <td>${member.stu_Name() }</td>
+                      	 <td>${member.stu_Name }</td>
                       </tr>
                       
                       
                       <tr>
                         <td>성별</td>
-                      	 <td>${member.stu_Gender() }</td>
+                      	 <td>${member.stu_Gender }</td>
                       </tr>
                       
                       <tr>
                         <td>생년월일</td>
-                      	 <td>${member.stu_Birth() }</td>
+                      	 <td>${member.stu_Birth }</td>
                       </tr>
                        
                       <tr>
                         <td>이메일</td>
-                        <td>${member.stu_Email() }</td>
+                        <td>${member.stu_Email }</td>
                       </tr>
                        
                       <tr>
                         <td>휴대전화</td>
-                        <td>${member.stu_Phone() }</td>
+                        <td>${member.stu_Phone }</td>
                       </tr>
                        
                       <tr>
                         <td>주소</td>
-                        <td>${member.stu_Address() }</td>
+                        <td>${member.stu_Address }</td>
                       </tr>
                        
                       <tr>
                         <td>수강회차</td>
-                        <td>${member.lecture_Time() }</td>
+                        <td>${member.lecture_Time }</td>
                       </tr>
                        
                       <tr>
                         <td>아이디</td>
-                        <td>${member.stu_ID() }</td>
+                        <td>${member.stu_ID }</td>
                       </tr>
                       
                       <tr>
                         <td>비밀번호</td>
-                      	 <td>${member.stu_PW() }</td>
+                      	 <td>${member.stu_PW }</td>
                       </tr>
                        
                     <tr>

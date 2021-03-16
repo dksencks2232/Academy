@@ -25,75 +25,76 @@
                 <div class="col-sm-9">
                     <h2 class="text-center">회원 정보 수정하기</h2>
                      
-                    <form action="MemberUpdateProc.jsp" method="post">
+                    <form action="StudentUpdate.me" method="post">
                      
                     <table class="table table-striped">
                     
                     <tr>
                         <td>학생번호</td>
-                        <td>${member.stu_Num() }</td>
+                        <td>${member.stu_Num }</td>
+                        <input type="hidden" value='${member.stu_Num}' name="number" id="number" class="form-control">
                       </tr>
                     
                     <tr>
                         <td>이름</td>
                         <td>
-                        <input type="text" value='${member.stu_Name() }' name="email" class="form-control">
+                        <input type="text" value='${member.stu_Name }' name="name" id="name" class="form-control">
                         </td>
                       </tr>
                       
                       <tr>
                         <td>성별</td>
                         <td>
-                        <input type="text" value='${member.stu_Gender() }' name="email" class="form-control">
+                        <input type="text" value='${member.stu_Gender }' name="gender" id="gender" class="form-control">
                         </td>
                       </tr>
                     
                     <tr>
                         <td>생년월일</td>
                         <td>
-                        <input type="text" value='${member.stu_Birth() }' name="email" class="form-control">
+                        <input type="text" value='${member.stu_Birth }' name="birth" id="birth" class="form-control">
                         </td>
                       </tr>
                     
                     <tr>
                         <td>이메일</td>
                         <td>
-                        <input type="email" value='${member.stu_Email() }'name="email" class="form-control">
+                        <input type="email" value='${member.stu_Email }'name="email" id="email" class="form-control">
                         </td>
                       </tr>
                     
                     <tr>
                         <td>휴대전화</td>
                         <td>
-                        <input type="email" value='${member.stu_Phone() }'name="email" class="form-control">
+                        <input type="text" value='${member.stu_Phone }'name="phone" id="phone" class="form-control">
                         </td>
                       </tr>
                     
                     <tr>
                         <td>주소</td>
                         <td>
-                        <input type="email" value='${member.stu_Address() }'name="email" class="form-control">
+                        <input type="text" value='${member.stu_Address }'name="address" id="address" class="form-control">
                         </td>
                       </tr>
                       
                       <tr>
                         <td>수강회차</td>
                         <td>
-                        <input type="email" value='${member.lecture_Time() }'name="email" class="form-control">
+                        <input type="text" value='${member.lecture_Time }'name="time" id="time" class="form-control">
                         </td>
                       </tr>
                     
                       <tr>
                         <td>아이디</td>
                         <td>
-                        <input type="text" value='${member.stu_Email() }' name="email" class="form-control">
+                        <input type="text" value='${member.stu_ID }' name="id" id="id" class="form-control">
                         </td>
                       </tr>
                        
                       <tr>
                         <td>패스워드</td>
                         <td>
-                        <input type="password" value=${member.stu_PW() } name="pass1" class="form-control">
+                        <input type="password" value=${member.stu_PW } name="pw" id="pw" class="form-control">
                         </td>
                       </tr>
                        

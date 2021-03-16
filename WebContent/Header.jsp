@@ -52,7 +52,7 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.jsp">Home</a></li>
-          <li><a href="EDC.jsp">교육과정</a></li>
+          <li><a href="educationListAction.edc">교육과정</a></li>
           <li><a href="Notice.jsp">공지사항</a></li>
           <li><a href="Review.jsp">수강후기게시판</a></li>
           <li><a href="QNA.jsp">Q&A</a></li>
@@ -82,11 +82,11 @@
  <a href="courses.html" class="get-started-btn">관리자 로그인</a>
 
 	<c:choose>
-	<c:when test="${id eq null}">
+	<c:when test="${sessionScope.id eq null}">
 		<a href="Student_Login.me" class="get-started-btn">학생 로그인</a>
 	</c:when>
 	<c:otherwise>
-		<a href="Student_Login.me" class="get-started-btn">로그아웃</a>
+		<a href="StudentLogout.me" class="get-started-btn">로그아웃</a>
 	</c:otherwise>
 </c:choose>
 
@@ -96,5 +96,5 @@
 
     </div>
   </header><!-- End Header -->
-
+</body>
 </html>

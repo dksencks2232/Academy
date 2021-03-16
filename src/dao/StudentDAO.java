@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import static db.JdbcUtil.*;
 import vo.StudentMemberBean;
 
 public class StudentDAO {
-	public static StudentDAO instance;
+	public static StudentDAO stuDAO;
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;
@@ -18,10 +20,10 @@ public class StudentDAO {
 		
 	}
 	public static StudentDAO getInstance(){
-		if(instance == null){
-			instance = new StudentDAO();
+		if(stuDAO == null){
+			stuDAO = new StudentDAO();
 		}
-		return instance;
+		return stuDAO;
 	}
 	public void setConnection(Connection con){
 		this.con = con;
@@ -78,6 +80,37 @@ public class StudentDAO {
 			close(pstmt);
 		}
 		return member;
+	}
+	public int updateMember(StudentMemberBean member) {
+		
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		String sql = "update StudentMember set stu_Name =?, stu_Gender =?, stu_Birth =?, stu_Email=?, stu_Phone=?, stu_Address =?, "
+				+" lecture_Time=?, stu_ID=?, stu_PW=? where Stu_Num=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			System.out.println("id2 : " + member.getStu_Name());
+			pstmt.setString(1, member.getStu_Name());
+			pstmt.setString(2, member.getStu_Gender());
+			pstmt.setString(3, member.getStu_Birth());
+			pstmt.setString(4, member.getStu_Email());
+			pstmt.setString(5, member.getStu_Phone());
+			pstmt.setString(6, member.getStu_Address());
+			pstmt.setString(7, member.getLecture_Time());
+			pstmt.setString(8, member.getStu_ID());
+			pstmt.setString(9, member.getStu_PW());
+			pstmt.setInt(10, member.getStu_Num());
+			
+			
+			updateCount = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return updateCount;
 	}
 	
 }
