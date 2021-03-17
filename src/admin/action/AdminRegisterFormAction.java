@@ -22,7 +22,7 @@ public class AdminRegisterFormAction implements Action {
 		} else {
 			request.setAttribute("contentPage", "/Admin/AdminRegisterForm.jsp");
 			forward = new ActionForward("AdminMain.jsp",false); 
-		}  
+		}    
 		return forward;
 	}
 
