@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
 <style>
 	.login-form {
 		width: 340px;
@@ -54,7 +55,7 @@
 </head>
 
 <body>
-<jsp:include page="../Header.jsp"></jsp:include>
+<jsp:include page="/Header.jsp"></jsp:include>
 <main id="main">
     <!-- ======= Popular Courses Section ======= -->
     <section id="popular-courses" class="courses">
@@ -83,6 +84,6 @@
  </div>
     </section><!-- End Popular Courses Section -->
     </main>
-    <jsp:include page="../Footer.jsp"></jsp:include>
+    <jsp:include page="/Footer.jsp"></jsp:include>
 </body>
 </html>

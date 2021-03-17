@@ -1,5 +1,7 @@
-/EDC_Controller/
-/edc/
-/controller/
 /admin/
+/controller/
 /dao/
+/db/
+/edc/
+/member/
+/vo/

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import admin.action.AdminDetailAction;
 import admin.action.AdminListAction;
@@ -59,6 +60,11 @@ public class AdminController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("AdminListForm.jsp");
+			
+		} else if(command.equals("AdminLogout.ad")) {				//관리자 로그아웃
+			HttpSession session = request.getSession();
+			session.invalidate();
+			forward = new ActionForward("/Admin_LoginForm.ad",false);
 			
 		} else if(command.equals("AdminModifyFormAction.ad")) {			//관리자 정보 수정 폼으로 이동후 정보화면출력
 			action = new AdminModifyFormAction();

@@ -102,27 +102,30 @@
 			if(!checkExistData(search, "교육과정을")) {
 				return false;
 			}
+			return true;
 		}
 		
 		
-		function checkName(name) {				//이름 검사
+		function checkName(name) {						//이름 검사
 			if(!checkExistData(name, "이름을")) {
 				return false;
 			}
 		
-			var nameRegExp = /^[가-힣]{2,4}$/;
+			
+			 var nameRegExp = /^[가-힣]{2,4}$/;
 			
 			if(!nameRegExp.test(name)) {
 				alert("이름이 올바르지 않습니다.");
 				return false;
 			}
 			return true;
-		}
+		} 
 		
 		function checkGender(gender) {
 			if(!checkExistData(gender,"성별을")) {
 				return false;
 			}
+			return true;
 		}
 		
 		
@@ -131,13 +134,14 @@
 			if(!checkExistData(tel,"전화번호를")) {
 				return false;
 			}
-			var telRegExp = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}/; //전화번호 정규식
+			var telRegExp = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/; //전화번호 정규식
 			
 			
 			  if(!telRegExp.test(tel)) {
 				  alert("전화번호 양식이 맞지 않습니다.ex(000-0000-0000 or 00-000-0000 or 00-0000-0000)");
 			        form.tel.value="";
 			        form.tel.focus();
+			        return false;
 			    }
 			    return true;
 			}
@@ -145,6 +149,8 @@
 		function checkGrade(grade) {
 			if(!checkExistData(grade,"등급을")) {
 				return false;
+			} else {
+				return true;
 			}
 		}
 	

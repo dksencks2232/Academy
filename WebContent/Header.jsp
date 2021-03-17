@@ -27,6 +27,7 @@
   <link href="Mentor/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="Mentor/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="Mentor/assets/vendor/aos/aos.css" rel="stylesheet">
+  
 
   <!-- Template Main CSS File -->
   <link href="Mentor/assets/css/style.css" rel="stylesheet">

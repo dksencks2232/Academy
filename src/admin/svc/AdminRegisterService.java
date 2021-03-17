@@ -10,18 +10,27 @@ public class AdminRegisterService {
 
 	public boolean registAdmin(TeacherBean teacher) {  //직원등록
 		boolean registSuccess = false;
-		AdminDAO adminDAO = AdminDAO.getInstance();
-		Connection con = getConnection();
+		Connection con = null;
 		
-		int insertCount = adminDAO.insertAdmin(teacher);
+		try {
+			con = getConnection();
+			AdminDAO adminDAO = AdminDAO.getInstance();
+			adminDAO.setConnection(con);
+			int insertCount = adminDAO.insertAdmin(teacher);
+			
+			if(insertCount > 0) {
+				commit(con);
+				registSuccess = true;
+				System.out.println("직원 등록 완료");
+			} else {
+				rollback(con);
+				System.out.println("직원 등록 실패");
+			}
 		
-		if(insertCount > 0) {
-			registSuccess = true;
-			commit(con);
-			System.out.println("직원 등록 완료");
-		} else {
-			rollback(con);
-			System.out.println("직원 등록 실패");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
 		}
 		return registSuccess;
 	}

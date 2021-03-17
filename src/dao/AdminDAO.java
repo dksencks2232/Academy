@@ -150,7 +150,7 @@ public class AdminDAO {
 
 	public int updateAdmin(TeacherBean teacher) {			//관리자 정보 수정
 		int updateCount = 0;
-		PreparedStatement pstmt = null;
+		
 		String sql = "   UPDATE Teacher SET Teacher_ID = ?, EDC_Num = ?     "
 					+ "                   , Teacher_PW = ?, Teacher_Name = ?"
 				    + "					  ,	Teacher_Gender = ?, Teacher_Phone = ?"
@@ -184,8 +184,34 @@ public class AdminDAO {
 	}
 
 	public int insertAdmin(TeacherBean teacher) {			//직원 등록
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "INSERT INTO Teacher VALUES(?,?,?,?,?,?,?)";
+		int insertCount = 0;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, teacher.getTeacher_ID());
+			pstmt.setInt(2, teacher.getEdc_Num());
+			pstmt.setString(3, teacher.getTeacher_PW());
+			pstmt.setString(4, teacher.getTeacher_Name());
+			pstmt.setString(5, teacher.getTeacher_Gender());
+			pstmt.setString(6, teacher.getTeacher_Phone());
+			pstmt.setString(7, teacher.getTeacher_Grade());
+			
+			insertCount = pstmt.executeUpdate();
+			
+		}catch (Exception e) {
+			System.out.println("insertAdmin 에러");
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt!=null) {
+					close(pstmt);
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return insertCount;
 	}
 
 }	

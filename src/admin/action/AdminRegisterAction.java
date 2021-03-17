@@ -14,6 +14,7 @@ public class AdminRegisterAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("utf-8");
 		
 		TeacherBean teacher = new TeacherBean();
 		boolean registResult = false;
@@ -25,6 +26,7 @@ public class AdminRegisterAction implements Action {
 		teacher.setTeacher_Gender(request.getParameter("gender"));
 		teacher.setTeacher_Phone(request.getParameter("tel"));
 		teacher.setTeacher_Grade(request.getParameter("grade"));
+		
 		
 		AdminRegisterService adminRegisterService = new AdminRegisterService();
 		registResult = adminRegisterService.registAdmin(teacher);
@@ -39,6 +41,11 @@ public class AdminRegisterAction implements Action {
    			out.println("history.back()");
    			out.println("</script>");
 		} else {
+			response.setContentType("text/html;charset=UTF-8");
+   			PrintWriter out = response.getWriter();
+   			out.println("<script>");
+   			out.println("alert('직원이 성공적으로 등록되었습니다.')");
+   			out.println("</script>");
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("./AdminListAction.ad");

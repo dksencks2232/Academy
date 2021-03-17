@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,17 +50,17 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="../index.jsp" target="_blank">메인 홈페이지</a></li>
 				<li class="dropdown ">
+				
+				<c:if test="${id != null }">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-						계정
+						${id} 님
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li class="dropdown-header">SETTINGS</li>
-							<li class=""><a href="#">Other Link</a></li>
-							<li class=""><a href="#">Other Link</a></li>
-							<li class=""><a href="#">Other Link</a></li>
 							<li class="divider"></li>
-							<li><a href="#">Logout</a></li>
+							<li><a href="AdminLogout.ad">Logout</a></li>
 						</ul>
+				</c:if>
 					</li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
