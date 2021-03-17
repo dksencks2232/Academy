@@ -1,4 +1,4 @@
-package EDC_Controller;
+package controller;
 
 import java.io.IOException;
 
@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import EDC.action.EduListAction;
-import EDC.action.EduViewAction;
+import edc.action.EduListAction;
+import edc.action.EduSearchListAction;
+import edc.action.EduViewAction;
 import member.action.Action;
 import vo.ActionForward;
 
@@ -18,13 +19,13 @@ import vo.ActionForward;
  * Servlet implementation class EdcControlloer
  */
 @WebServlet("*.edc")
-public class EdcControlloer extends HttpServlet {
+public class EdcController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EdcControlloer() {
+    public EdcController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -64,11 +65,25 @@ public class EdcControlloer extends HttpServlet {
 			forward.setRedirect(false);
 			request.setAttribute("pagefile", "education2.jsp");
 			forward.setPath("index2.jsp");
+		
+		} else if(command.equals("/edcModalSearchList.edc")) {		//모달창 검색 리스트 폼으로 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/EDC/EDC_Search.jsp");
+			
 		}else if(command.equals("/educationListAction.edc")) {
 			action = new EduListAction();
 			try {
 				forward = action.execute(request, response);
 				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/EDC/edcSearchListAction.edc")) {		//관리자페이지 강사등록, 교육과정 검색 모달창 리스트
+			System.out.println("여기까지");
+			action = new EduSearchListAction();
+			try {
+				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

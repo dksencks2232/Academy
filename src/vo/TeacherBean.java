@@ -2,7 +2,7 @@ package vo;
 //강사
 public class TeacherBean {
 	private String teacher_ID;//'강사_아이디',
-	//private int edc_Num;//'교육과정_번호',
+	private int edc_Num;//'교육과정_번호',담당교육과정번호
 	private String teacher_Name;//'강사_이름',
 	private String teacher_Gender;//'강사_성별',
 	private String teacher_Phone;//'강사_휴대전화',
@@ -11,6 +11,12 @@ public class TeacherBean {
 	
 	private boolean isTeacher; //강사 여부
 	
+	public int getEdc_Num() {
+		return edc_Num;
+	}
+	public void setEdc_Num(int edc_Num) {
+		this.edc_Num = edc_Num;
+	}
 	public String getTeacher_ID() {
 		return teacher_ID;
 	}

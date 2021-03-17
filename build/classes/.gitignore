@@ -1,6 +1,5 @@
-/member/
-/controller/
-/dao/
-/vo/
 /EDC_Controller/
-/EDC/
+/edc/
+/controller/
+/admin/
+/dao/

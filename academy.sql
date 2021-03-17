@@ -51,7 +51,7 @@ CREATE TABLE EDC
 CREATE TABLE Notice_Board
 (
 	Notice_Board_Num int NOT NULL AUTO_INCREMENT COMMENT '공지사항 게시판번호',
-	Teacher_ID varchar(20) COMMENT '강사_아이디',
+	Teacher_ID varchar(20) NOT NULL COMMENT '강사_아이디',
 	Notice_Board_Title varchar(50) NOT NULL COMMENT '제목',
 	Notice_Board_Date date NOT NULL COMMENT '등록일',
 	Notice_Board_Hit varchar(100) NOT NULL COMMENT '조회수',
@@ -119,7 +119,7 @@ CREATE TABLE Regist
 CREATE TABLE Review_Board
 (
 	Review_Board_Num int NOT NULL COMMENT '수강후기 게시판번호',
-	Stu_Num int COMMENT '학생_번호',
+	Stu_Num int NOT NULL COMMENT '학생_번호',
 	Review_Board_Title varchar(50) NOT NULL COMMENT '제목',
 	Review_Board_Date date NOT NULL COMMENT '등록일',
 	Review_Board_Hit varchar(100) NOT NULL COMMENT '조회수',
@@ -152,12 +152,12 @@ CREATE TABLE StudentMember
 CREATE TABLE Teacher
 (
 	Teacher_ID varchar(20) NOT NULL COMMENT '강사_아이디',
-	EDC_Num int COMMENT '교육과정_번호',
+	EDC_Num int NOT NULL COMMENT '교육과정_번호',
+	Teacher_PW varchar(20) NOT NULL COMMENT '강사_비밀번호',
 	Teacher_Name varchar(20) NOT NULL COMMENT '강사_이름',
 	Teacher_Gender varchar(2) NOT NULL COMMENT '강사_성별',
 	Teacher_Phone varchar(25) NOT NULL COMMENT '강사_휴대전화',
 	Teacher_Grade varchar(3) NOT NULL COMMENT '강사_등급',
-	Teacher_PW varchar(20) NOT NULL COMMENT '강사_비밀번호',
 	PRIMARY KEY (Teacher_ID)
 ) COMMENT = '강사';
 

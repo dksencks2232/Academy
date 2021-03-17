@@ -79,7 +79,7 @@
         </ul>
       </nav><!-- .nav-menu -->
 
- <a href="courses.html" class="get-started-btn">관리자 로그인</a>
+ <a href="Admin_LoginForm.ad" class="get-started-btn">관리자 로그인</a>
 
 	<c:choose>
 	<c:when test="${sessionScope.id eq null}">
