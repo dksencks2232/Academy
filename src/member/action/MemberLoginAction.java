@@ -32,7 +32,7 @@ public class MemberLoginAction implements Action {
 		if(logoinResult) {
 			forward = new ActionForward();
 			session.setAttribute("id", member.getStu_ID());
-			
+			System.out.println("학생" + session.getAttribute("id"));
 			forward.setRedirect(true);
 			forward.setPath("StudentView.me");
 			

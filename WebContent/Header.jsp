@@ -13,8 +13,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="Mentor/assets/img/favicon.png" rel="icon">
-  <link href="Mentor/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/Mentor/assets/img/favicon.png" rel="icon">
+  <link href="/Mentor/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -26,7 +26,7 @@
   <link href="Mentor/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="Mentor/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="Mentor/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="Mentor/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="${pagecontext.request.contextpath}/Mentor/assets/vendor/aos/aos.css" rel="stylesheet">
   
 
   <!-- Template Main CSS File -->
@@ -80,18 +80,28 @@
         </ul>
       </nav><!-- .nav-menu -->
 
- <a href="Admin_LoginForm.ad" class="get-started-btn">관리자 로그인</a>
-
-	<c:choose>
-	<c:when test="${sessionScope.id eq null}">
-		<a href="Student_Login.me" class="get-started-btn">학생 로그인</a>
+<c:if test="${sessionScope.sessionId == sessionId }">
+<c:choose>
+	<c:when test="${sessionScope.sessionId eq null }">
+ 		<a href="Admin_LoginForm.ad" class="get-started-btn">관리자 로그인</a>
 	</c:when>
 	<c:otherwise>
-		<a href="StudentLogout.me" class="get-started-btn">로그아웃</a>
+	 	<a href="AdminLogout.ad" class="get-started-btn">관리자 로그아웃</a>
 	</c:otherwise>
 </c:choose>
+</c:if>
 
-
+<c:if test="${sessionScope.id == id }">
+<c:choose>
+	<c:when test="${sessionScope.id eq null}">
+		<a href="Student_Login.me" class="get-started-btn"  >학생 로그인</a>
+	</c:when>
+	<c:otherwise>
+		<a href="StudentLogout.me" class="get-started-btn" >로그아웃</a>
+	</c:otherwise>
+	
+</c:choose>
+</c:if>
      
 		 
 

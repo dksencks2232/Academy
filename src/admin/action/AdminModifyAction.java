@@ -17,7 +17,7 @@ public class AdminModifyAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward  = null;
 		HttpSession session = request.getSession();
-		String sessionId = (String) session.getAttribute("id");
+		String sessionId = (String) session.getAttribute("sessionId");
 //		String page = request.getParameter("page");
 		
 		if(sessionId == null) {		//관리자 아이디 세션이 존재하지 않을 경우

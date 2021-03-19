@@ -15,9 +15,9 @@ public class AdminListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
+		String sessionId = (String)session.getAttribute("sessionId");
 		ActionForward forward = null;
-		if(id == null) {					// 아이디가 없을 때
+		if(sessionId == null) {					// 아이디가 없을 때
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("./Admin_LoginForm.ad");
@@ -28,7 +28,7 @@ public class AdminListAction implements Action {
 			
 			request.setAttribute("allList", allList);
 			request.setAttribute("contentPage", "/Admin/AdminListForm.jsp");		//관리자 리스트 폼 경로를 넣어줌
-			forward = new ActionForward("AdminMain.jsp",false);
+			forward = new ActionForward("AdminMainForm.ad",false);
 			
 		}
 		return forward;

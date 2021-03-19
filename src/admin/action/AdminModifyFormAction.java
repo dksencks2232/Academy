@@ -15,7 +15,7 @@ public class AdminModifyFormAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		String sessionId = (String)session.getAttribute("id");
+		String sessionId = (String)session.getAttribute("sessionId");
 		ActionForward forward = null;
 		
 		if(sessionId == null) {
@@ -31,7 +31,7 @@ public class AdminModifyFormAction implements Action {
 			request.setAttribute("teacher", teacher);
 //			request.setAttribute("page", page);										//페이지 넣어야함
 			request.setAttribute("contentPage", "/Admin/AdminModifyForm.jsp");		//관리자 정보수정 폼 경로를 넣어줌
-			forward = new ActionForward("AdminMain.jsp",false);
+			forward = new ActionForward("AdminMainForm.ad",false);
 		}
 		return forward;
 	}

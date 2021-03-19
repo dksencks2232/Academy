@@ -15,7 +15,7 @@ public class AdminDetailAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session = request.getSession();
-		String sessionId = (String)session.getAttribute("id");		//강사 아이디 세션
+		String sessionId = (String)session.getAttribute("sessionId");		//강사 아이디 세션
 		
 		ActionForward forward = null;
 		if(sessionId == null) {
@@ -28,7 +28,7 @@ public class AdminDetailAction implements Action {
 			TeacherBean teacher = adminDetailService.getAdmin(id);		//강사아이디의 이름으로 db에서 값 불러오기
 			request.setAttribute("teacher", teacher);
 			request.setAttribute("contentPage", "/Admin/AdminDetailForm.jsp");		//관리자 상세보기 폼 경로를 넣어줌
-			forward = new ActionForward("AdminMain.jsp",false);
+			forward = new ActionForward("AdminMainForm.ad",false);
 		}
 		return forward;
 	}

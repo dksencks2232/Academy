@@ -76,6 +76,7 @@
                          <td class="text-center" colspan="2">
 
 		<button onclick="location.href='AdminModifyFormAction.ad?id=${teacher.teacher_ID }'" class="btn btn-warning">정보수정</button>
+		<button onclick="location.href='AdminDeleteAction.ad?id=${teacher.teacher_ID}'" class="btn btn-danger">정보삭제</button>
         <button onclick="location.href='AdminListAction.ad'" class="btn btn-primary">관리리스트로 이동</button>                   
                          </td>    
                     </tr> 

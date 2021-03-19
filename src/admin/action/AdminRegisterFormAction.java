@@ -12,7 +12,7 @@ public class AdminRegisterFormAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		String sessionId = (String)session.getAttribute("id");
+		String sessionId = (String)session.getAttribute("sessionId");
 		ActionForward forward = null;
 		
 		if(sessionId == null) {
@@ -21,7 +21,7 @@ public class AdminRegisterFormAction implements Action {
 			forward.setPath("./Admin_LoginForm.ad");  //세션없으면 관리자 로그인페이지로 이동
 		} else {
 			request.setAttribute("contentPage", "/Admin/AdminRegisterForm.jsp");
-			forward = new ActionForward("AdminMain.jsp",false); 
+			forward = new ActionForward("AdminMainForm.ad",false); 
 		}    
 		return forward;
 	}

@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import admin.svc.AdminRegisterService;
 import member.action.Action;
@@ -16,9 +17,17 @@ public class AdminRegisterAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		
+		HttpSession session = request.getSession();
+		String sessionId = (String)session.getAttribute("sessionId");
+		ActionForward forward = null;
 		TeacherBean teacher = new TeacherBean();
 		boolean registResult = false;
 		
+		if(sessionId == null) {
+			forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("./Admin_LoginForm.ad");  //관리자 로그인 페이지로 이동
+		}
 		teacher.setTeacher_ID(request.getParameter("id"));
 		teacher.setEdc_Num((Integer.parseInt(request.getParameter("search"))));
 		teacher.setTeacher_PW(request.getParameter("password"));
@@ -31,7 +40,6 @@ public class AdminRegisterAction implements Action {
 		AdminRegisterService adminRegisterService = new AdminRegisterService();
 		registResult = adminRegisterService.registAdmin(teacher);
 		
-		ActionForward forward = null;
 		
 		if(registResult == false) {
 			response.setContentType("text/html;charset=UTF-8");

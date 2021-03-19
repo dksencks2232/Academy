@@ -26,7 +26,24 @@
 			<!-- Main Menu -->
 			<div class="side-menu-container">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" style="border-right-width: 0px;"><span class="glyphicon glyphicon-dashboard"></span> 게시판 관리</a></li>
+					<li class="panel panel-default" id="dropdown">
+					<a href="#dropdown-lv2" data-target="#dropdown-lvl2" data-toggle="collapse"  style="border-right-width: 0px;">
+						<span class="glyphicon glyphicon-dashboard"></span> 게시판 관리 <span class="caret"></span>
+					</a>
+					
+					<div id="dropdown-lvl2" class="panel-collapse collapse">
+						<div class="panel-body">
+							<ul class="nav navbar-nav">
+								<li><a href="#">공지사항</a></li>
+								<li><a href="#">질의응답 게시판</a></li>
+								<li><a href="#">수강후기 게시판 </a></li>
+							</ul>
+						</div> 
+					</div>
+					
+					
+					
+					</li>
 					<li><a href="#"><span class="glyphicon glyphicon-plane"></span> Active Link</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-cloud"></span> 수강생 관리</a></li>
 

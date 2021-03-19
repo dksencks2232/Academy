@@ -70,8 +70,9 @@ public class EdcController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/EDC/EDC_Search.jsp");
+		
 			
-		}else if(command.equals("/educationListAction.edc")) {
+		}else if(command.equals("/educationListAction.edc")) {		// 모달창 검색 관리자 리스트 보여주기
 			action = new EduListAction();
 			try {
 				forward = action.execute(request, response);
@@ -79,8 +80,8 @@ public class EdcController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/EDC/edcSearchListAction.edc")) {		//관리자페이지 강사등록, 교육과정 검색 모달창 리스트
-			System.out.println("여기까지");
+			
+		} else if(command.equals("/edcSearchListAction.edc")) {		//관리자페이지 강사등록, 교육과정 검색 모달창 리스트
 			action = new EduSearchListAction();
 			try {
 				forward = action.execute(request, response);

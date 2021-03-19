@@ -28,9 +28,9 @@ public class AdminLoginAction implements Action {
 		
 		if(loginResult) {
 			forward = new ActionForward();
-			session.setAttribute("id", teacher.getTeacher_ID());
+			session.setAttribute("sessionId", teacher.getTeacher_ID());
 			forward.setRedirect(true);
-			forward.setPath("Admin/AdminMain.jsp");							//로그인 성공시 관리자 메인으로 이동한다.
+			forward.setPath("AdminMainForm.ad");							//로그인 성공시 관리자 메인으로 이동한다.
 		} else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
@@ -39,7 +39,7 @@ public class AdminLoginAction implements Action {
 			out.println("alert('로그인 실패');");
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("Admin/AdminLoginForm.jsp");
+			forward.setPath("Admin_LoginForm.ad");
 			out.println("</script>");
 		}
 		

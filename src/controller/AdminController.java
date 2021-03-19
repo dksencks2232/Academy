@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import admin.action.AdminDeleteAction;
 import admin.action.AdminDetailAction;
 import admin.action.AdminListAction;
 import admin.action.AdminLoginAction;
@@ -51,10 +52,18 @@ public class AdminController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("Admin/AdminLoginForm.jsp");
 		
-		} else if(command.equals("AdminIndexForm.ad")) {				//관리자 메인폼으로 이동
+		} else if(command.equals("AdminMainForm.ad")) {				//관리자 메인폼으로 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("AdminIndex.jsp");
+			forward.setPath("Admin/AdminMain.jsp");
+		
+			
+		} else if(command.equals("index.ad")) {						//홈페이지 메인홈페이지로 이동(관리자 아이디 세션을 담아서)
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			HttpSession session = request.getSession();
+			System.out.println(session.getAttribute("sessionId"));
+			forward.setPath("/index.jsp");	
 			
 		} else if(command.equals("AdminListForm.ad")) {				// 관리자 리스트 폼으로 이동		//수정예정
 			forward = new ActionForward();
@@ -62,9 +71,11 @@ public class AdminController extends HttpServlet {
 			forward.setPath("AdminListForm.jsp");
 			
 		} else if(command.equals("AdminLogout.ad")) {				//관리자 로그아웃
+			forward = new ActionForward();
 			HttpSession session = request.getSession();
-			session.invalidate();
-			forward = new ActionForward("/Admin_LoginForm.ad",false);
+			session.removeAttribute("sessionId");
+			forward.setRedirect(true);
+			forward.setPath("Admin_LoginForm.ad");
 			
 		} else if(command.equals("AdminModifyFormAction.ad")) {			//관리자 정보 수정 폼으로 이동후 정보화면출력
 			action = new AdminModifyFormAction();
@@ -82,6 +93,7 @@ public class AdminController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		
 			
 			/* 각종 처리 */
 		} else if(command.equals("AdminListAction.ad")) {			//관리자 전체리스트 화면 처리
@@ -112,7 +124,13 @@ public class AdminController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+		} else if(command.equals("AdminDeleteAction.ad")) {			//관리자 직원 삭제 처리
+			action = new AdminDeleteAction();			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else if(command.equals("AdminLoginAction.ad")) {		//관리자 로그인 했을 때의 처리 -> 성공시 관리자 메인페이지로이동
 			action = new AdminLoginAction();
 			try{

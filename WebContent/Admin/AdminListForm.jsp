@@ -52,6 +52,7 @@
 				<td>관리자</td>
 			</c:when>
 			</c:choose>
+			
 			</tr>
 		</tbody>
 		</c:forEach>

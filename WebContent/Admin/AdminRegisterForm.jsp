@@ -153,7 +153,10 @@
 				return true;
 			}
 		}
-	
+		
+		function back() {				//뒤로가기
+			history.back();
+		}
 
 </script>
 
@@ -184,7 +187,7 @@
             	<th>직원 교육과정 </th>
             	<td>
             	<input type="text" name="search" id="search" class="form-control" placeholder="교육과정 검색을 하세요" readonly="readonly">
-				<input type="button" value="검색" class="btn btn-primary" onclick="edc_modal('../EDC/EDC_Search.jsp','','1000','600','yes')">
+				<input type="button" value="검색" class="btn btn-primary" onclick="edc_modal('edcModalSearchList.edc','','1000','600','yes')">
 				</td>
             </tr> 
              
@@ -223,7 +226,7 @@
             <tr>
                 <td colspan="2">
                 <input type="submit" class="btn btn-primary" value="전송">
-                <input type="reset" class="btn btn-danger" value="취소">
+                <input type="button" class="btn btn-danger" value="취소" onclick="back()">
                 </td>
             </tr>
              

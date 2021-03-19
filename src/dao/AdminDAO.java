@@ -214,4 +214,30 @@ public class AdminDAO {
 		return insertCount;
 	}
 
+	public int deleteAdmin(String id) {				//직원 삭제
+		String sql = "DELETE FROM Teacher WHERE Teacher_ID = ?";
+		int deleteCount = 0;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			deleteCount = pstmt.executeUpdate();
+			
+		}	catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("직원 삭제 오류");
+		} finally {
+			try {
+				if(pstmt!=null) {
+					close(pstmt);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return deleteCount;
+	}
+
+	
+
 }	
