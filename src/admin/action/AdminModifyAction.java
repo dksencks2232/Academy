@@ -19,17 +19,19 @@ public class AdminModifyAction implements Action {
 		HttpSession session = request.getSession();
 		String sessionId = (String) session.getAttribute("sessionId");
 //		String page = request.getParameter("page");
+		response.setContentType("text;charset=utf-8");
+		PrintWriter out = response.getWriter();
 		
 		if(sessionId == null) {		//관리자 아이디 세션이 존재하지 않을 경우
-			response.setContentType("text;charset=utf-8");
-			PrintWriter out = response.getWriter();
+			
 			out.println("<script>");
 			out.println("alert('관리자 재로그인이 필요합니다.!!')");
     		out.println("location.href='/Admin/AdminLoginForm.jsp'");
     		out.println("</script>");
+    		out.flush();
+    		out.close();
 		} else {
 			request.setCharacterEncoding("utf-8");
-			response.setContentType("utf-8");
 			TeacherBean teacher = new TeacherBean();
 			teacher.setTeacher_ID(request.getParameter("id"));  					//아이디
 			teacher.setTeacher_PW(request.getParameter("password"));
@@ -56,8 +58,6 @@ public class AdminModifyAction implements Action {
 				forward.setRedirect(true);
 				forward.setPath("AdminDetailAction.ad?id="+ teacher.getTeacher_ID());// + "&page="+ page추가예정
 			} else {
-				response.setContentType("text;charset=utf-8");
-				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('수정실패')");
 				out.println("history.back();");

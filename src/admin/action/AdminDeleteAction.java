@@ -40,19 +40,24 @@ public class AdminDeleteAction implements Action {
 			out.println("alert('관리자 권한이 없습니다.');");
 			out.println("history.back();");
 			out.println("</script>");
-			
-			} else {
+			out.flush();
+			out.close();
+			} else {			//관리자일때
 				String id = request.getParameter("id");							//직원 아이디 를 파라미터로 받아옴
 				boolean deleteResult = adminDeleteService.deleteAdmin(id);
 				
 					if(deleteResult) {
-						out.println("<script>");
+						out.println("<script> ");
 						out.println("alert('직원정보를 삭제하였습니다.');");
+						out.println("history.back();");
 						out.println("</script>");
+						out.flush();
+						out.close();
 						forward = new ActionForward();
 						forward.setRedirect(true);
 						forward.setPath("AdminListAction.ad"); 				//직원 리스트로 이동
-					} else {
+						
+					} else  {
 						out.println("<script>");
 						out.println("alert('직원정보삭제 실패.');");
 						out.println("location.href='AdminListAction.ad';");

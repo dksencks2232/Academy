@@ -18,14 +18,15 @@ import admin.action.AdminModifyAction;
 import admin.action.AdminModifyFormAction;
 import admin.action.AdminRegisterAction;
 import admin.action.AdminRegisterFormAction;
+import board.action.NoticeBoardListFormAction;
 import member.action.Action;
 import vo.ActionForward;
 
 /**
  * Servlet implementation class MemberController
  */
-@WebServlet("*.ad")
-public class AdminController extends HttpServlet {
+@WebServlet("*.bo")
+public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) 
@@ -47,11 +48,14 @@ public class AdminController extends HttpServlet {
         
         
 		
-		if(command.equals("Admin_LoginForm.ad")) {					//관리자 로그인 폼으로 그냥 이동
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("Admin/AdminLoginForm.jsp");
-		
+		if(command.equals("NoticeBoardListFormAction.bo")) {		//공지사항 폼으로 이동
+			action = new NoticeBoardListFormAction();				
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		} else if(command.equals("AdminMainForm.ad")) {				//관리자 메인폼으로 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);

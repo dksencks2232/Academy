@@ -5,12 +5,20 @@ import java.sql.Date;
 //공지사항 게시판
 public class Notice_BoardBean {
 	private int notice_Board_Num;  //'공지사항 게시판번호',
-//	private String teacher_ID ;// '강사_아이디',
+	private String teacher_ID ;// '강사_아이디',
 	private String notice_Board_Title ;// '제목',
 	private Date notice_Board_Date ;// '등록일',
 	private String notice_Board_Hit ;// '조회수',
 	private String notice_Board_Content ;// '내용'
 	
+	
+	
+	public String getTeacher_ID() {
+		return teacher_ID;
+	}
+	public void setTeacher_ID(String teacher_ID) {
+		this.teacher_ID = teacher_ID;
+	}
 	public int getNotice_Board_Num() {
 		return notice_Board_Num;
 	}

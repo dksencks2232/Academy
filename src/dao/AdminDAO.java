@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.sql.DataSource;
 
@@ -236,6 +237,78 @@ public class AdminDAO {
 			}
 		}
 		return deleteCount;
+	}
+
+	public ArrayList<TeacherBean> getAdminList(HashMap<String, Object> listOpt) {
+		ArrayList<TeacherBean> list = new ArrayList<TeacherBean>();
+		
+		String opt = (String)listOpt.get("opt");            //검색옵션(아이디,이름,등급);
+		String condition = (String)listOpt.get("condition");//검색내용	
+															//페이지 처리
+		String grade = null;
+		String sql = null;
+		
+		try {
+			 if(opt == null) {							//검색옵션이 없으면	
+				 sql = "SELECT * FROM Teacher" ;		//직원목록 전체 보여주기
+				 
+				 pstmt = con.prepareStatement(sql);
+			 } else if(opt.equals("0")) {				//검색옵션이 아이디일경우
+				 sql = "SELECT * FROM Teacher WHERE Teacher_ID like ? ";
+				 pstmt = con.prepareStatement(sql);
+				 pstmt.setString(1, "%"+condition+"%");
+				 
+			 } else if(opt.equals("1")) {				//검색옵션이 이름일경우
+				 sql = "SELECT * FROM Teacher WHERE Teacher_Name like ?";
+				 pstmt = con.prepareStatement(sql);
+				 pstmt.setString(1, "%"+condition+"%");
+				 
+			 } else if(opt.equals("2")) {
+				 sql = "SELECT * FROM Teacher WHERE Teacher_Grade = ? " ;  //검색옵션이 등급일경우
+				 
+					 if(condition.equals("관리자")) {
+						 grade = "2";
+					 } else if(condition.equals("상담원")) {
+						 grade = "1";
+					 } else if(condition.equals("강사")) {
+						 grade = "0";
+					 }
+				 System.out.println("내용 " + condition);
+				 pstmt = con.prepareStatement(sql);
+				 pstmt.setString(1, grade);
+				 
+			 }
+			 
+			 rs = pstmt.executeQuery();
+			 
+			 while(rs.next()) {
+				 	TeacherBean teacher = new TeacherBean();
+				 	teacher.setTeacher_ID(rs.getString("Teacher_ID"));
+				 	teacher.setEdc_Num(rs.getInt("EDC_Num"));
+				 	teacher.setTeacher_PW(rs.getString("Teacher_PW"));
+				 	teacher.setTeacher_Name(rs.getString("Teacher_Name"));
+				 	teacher.setTeacher_Phone(rs.getString("Teacher_Gender"));
+				 	teacher.setTeacher_Gender(rs.getString("Teacher_Phone"));
+				 	teacher.setTeacher_Grade(rs.getString("Teacher_Grade"));
+				 	list.add(teacher);
+				 	
+			 }
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) {
+					close(rs);
+				}
+				if(pstmt!=null) {
+					close(pstmt);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
 	}
 
 	

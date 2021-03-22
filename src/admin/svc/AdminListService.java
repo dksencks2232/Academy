@@ -2,6 +2,7 @@ package admin.svc;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dao.AdminDAO;
 import vo.TeacherBean;
@@ -24,6 +25,15 @@ public class AdminListService {
 		ArrayList<TeacherBean> allList = adminDAO.selectAllList();
 		close(con);
 		return allList;
+	}
+
+	public ArrayList<TeacherBean> getAdminList(HashMap<String, Object> listOpt) {		//직원 리스트 옵션 검색 기능
+		Connection con = getConnection();
+		AdminDAO adminDAO = AdminDAO.getInstance();
+		adminDAO.setConnection(con);
+		ArrayList<TeacherBean> list = adminDAO.getAdminList(listOpt);
+		close(con);
+		return list;
 	}
 
 

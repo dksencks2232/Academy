@@ -37,10 +37,10 @@ public class AdminLoginAction implements Action {
 			System.out.println("로그인실패");
 			out.println("<script>");
 			out.println("alert('로그인 실패');");
+			out.println("</script>");
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("Admin_LoginForm.ad");
-			out.println("</script>");
 		}
 		
 		return forward;

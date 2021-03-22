@@ -10,6 +10,10 @@
 		if(value == "1") {
 			location.href="AdminListAction.ad";		// 리스트 만든 후 수정
 		}
+		
+		if(value == "4") {
+			location.href='NoticeBoardListFormAction.bo'   //공지사항 리스트로 이동
+		}
 	}
 </script>
 </head>
@@ -34,7 +38,7 @@
 					<div id="dropdown-lvl2" class="panel-collapse collapse">
 						<div class="panel-body">
 							<ul class="nav navbar-nav">
-								<li><a href="#">공지사항</a></li>
+								<li><a href="javascript:changeView(4);">공지사항</a></li>
 								<li><a href="#">질의응답 게시판</a></li>
 								<li><a href="#">수강후기 게시판 </a></li>
 							</ul>

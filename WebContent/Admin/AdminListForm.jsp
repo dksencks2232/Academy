@@ -14,6 +14,20 @@
 
  <div class="col-md-10 content">
 		<div class="panel panel-default">
+			<form action="AdminListAction.ad" class="navbar-form navbar-left" method="GET" role="search">
+				<div class="form-group">
+					<select name="opt" class="form-control"> <!-- 구분 -->
+						<option value="0" 
+							<c:if test="${opt == 0 }">selected</c:if>>아이디</option>
+						<option value="1"
+							<c:if test="${opt == 1 }">selected</c:if>>이름</option>
+						<option value="2"
+							<c:if test="${opt == 2 }">selected</c:if>>등급</option>
+					</select>
+					<input type="text" name="condition" class="form-control" placeholder="Search">
+				</div>
+				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+			</form>
 	<div class="text-right">
 	<button class="btn btn-primary" id="advanced-set-submit" onclick="location.href='AdminRegisterFormAction.ad'">강사등록</button>
 	</div>
@@ -28,7 +42,7 @@
 				<th>직원 등급</th>
 			</tr>
 		</thead>
-		<c:forEach var="list" items="${allList}">
+		<c:forEach var="list" items="${list}">
 		<tbody>
 			<tr>
 				<td>
